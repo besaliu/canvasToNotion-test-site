@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas to Notion</title>
+</head>
+<body>
+  <h1>Canvas to Notion</h1>
+  <p>Connect your Notion account to get started.</p>
+  <a id="connect-btn" href="#">Connect to Notion</a>
+  <script>
+    // Replace these with your actual values
+    const CLIENT_ID = "YOUR_CLIENT_ID";
+    const REDIRECT_URI = "https://YOUR_GITHUB_USERNAME.github.io/redirect.html"; // must match what you register with Notion
+
+    // Build the OAuth URL
+    const authUrl =
+      "https://api.notion.com/v1/oauth/authorize" +
+      "?client_id=" + encodeURIComponent(CLIENT_ID) +
+      "&response_type=code" +
+      "&owner=user" +
+      "&redirect_uri=" + encodeURIComponent(REDIRECT_URI);
+
+    document.getElementById("connect-btn").href = authUrl;
+  </script>
+</body>
+</html>
